@@ -3,7 +3,7 @@ const path  = require("path");
 const mongoose = require("mongoose");
 const userRoute = require("./routes/user");
 const app = express();
-const PORT = 8000;
+const PORT = process.env.PORT ||8000;
 app.use(express.json());
 const MONGO_URI = process.env.MONGO_URI || "mongodb://localhost:27017/ThreePatti";
 
