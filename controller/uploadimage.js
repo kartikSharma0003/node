@@ -49,3 +49,4 @@ async function uploadImage(req, res) {
 }
 
 module.exports = { uploadImage };
+// const MONGO_URI = "mongodb+srv://kartiksharmalbm0003:ebErYQOy3sBfVCX1@cluster0.wy5km.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
