@@ -90,11 +90,14 @@ userSchema.pre("save", async function(next) {
 
     // Generate JWT token
     const token = jwt.sign(
-        {
+        { 
             fullName: user.profile.fullName,
             email: user.profile.email,
             profileImageURL: user.profile.profileImageURL,
             walletAddress: user.wallet.Walletaddress,
+            userid :user.profile.userid,
+            dateTime: new Date().toISOString() 
+
         },
         'your_jwt_secret_key',
         { expiresIn: "5h" }
