@@ -27,7 +27,7 @@ async function getwallethistory(req, res) {
             const walletHistories = await WalletHistory.find({ "userId": userExist.profile.userid });
 
             // Return wallet history
-            return res.status(200).json({ status: 1, msg: "Wallet history fetched successfully", body: walletHistories });
+            return res.status(200).json({ status: 1, msg: "Wallet history fetched successfully", data: walletHistories });
         } else {
             return res.status(404).json({ status: 0, msg: "User Does Not Exist" });
         }

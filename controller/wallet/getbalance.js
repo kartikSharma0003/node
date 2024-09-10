@@ -4,7 +4,7 @@ async function getbalance(req, res) {
 
     if (!req.headers['authorization']) {
         return res.status(400).json({
-            "status": "0",
+            "status": 1,
             "msg": "Token is Required"
         });
     }
@@ -17,7 +17,7 @@ async function getbalance(req, res) {
         existdata =    await User.findOne({ "token": req.headers['authorization'] });
         if (existdata) {
             res.status(200).json({
-                "status": "1",
+                "status": 1,
                 "msg": "User Balance Get Sucessfully",
                   "data": existdata["wallet"]
             });
@@ -34,7 +34,7 @@ async function getbalance(req, res) {
   
     } catch (err) {
         res.status(401).json({
-            "status": "0",
+            "status": 0,
             "msg": "Invalid token"
         });
         console.error(err);

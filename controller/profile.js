@@ -15,19 +15,20 @@ async function profile(req, res) {
 
 
         const userExistData = await User.findOne({ "profile.userid": tokenData.userid });
-
+console.log(` clog ${userExistData}`)
 
         if(userExistData){
           
        
         res.status(200).json({
-            "status": "1",
+            "status": 1,
             "msg": "User Profile Get Sucessfully",
-              "data": userExistData.profile
+              "data": userExistData.profile,
+         "wallet":userExistData.wallet.Walletaddress,
         });
     }else {
         res.status(404).json({
-            "status": "0",
+            "status": 0,
             "msg": "No Data Found"
         });
     }
@@ -37,7 +38,7 @@ async function profile(req, res) {
   
     } catch (err) {
         res.status(401).json({
-            "status": "0",
+            "status": 0,
             "msg": "Invalid token"
         });
         console.error(err);

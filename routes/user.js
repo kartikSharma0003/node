@@ -46,7 +46,7 @@ router.post("/uploadimage",async (req, res)=>{
 });
 
 
-router.post("/userwallethistory",async(req,res)=>{
+router.get("/userwallethistory",async(req,res)=>{
      await getwallethistory(req,res)
 })
 

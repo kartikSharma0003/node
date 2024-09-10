@@ -1,4 +1,5 @@
 const User = require("../../models/user");
+const jwt = require("jsonwebtoken");
 
 async function signin(req, res) {
    
@@ -25,8 +26,36 @@ async function signin(req, res) {
 
     const userexistdata = await User.findOne({"profile.email": email })
 
+    // const token = jwt.sign(
+    //     { 
+    //         fullName: userexistdata.profile.fullName,
+    //         email: userexistdata.profile.email,
+    //         profileImageURL: userexistdata.profile.profileImageURL,
+    //         walletAddress: userexistdata.wallet.Walletaddress,
+    //         userid :userexistdata.profile.userid,
+    //         dateTime: new Date().toISOString() 
+
+    //     },
+    //     'your_jwt_secret_key',
+    //     { expiresIn: "5h" }
+    // );
+
+    // const updatedUser = await User.findOneAndUpdate(
+    //     { "profile.email": email },
+    //     {
+    //         $set: {
+    //             "token": token,
+    //             // "profile.fullName": fullname,
+    //             // "wallet.Walletaddress": walletaddress
+    //         }
+    //     },
+    //     { new: true } // return the updated document
+    // );
+
+
+
     if(userexistdata){
-    res.status(200).json({ status:1,msg: "Login Sucessfully",body:userexistdata});
+    res.status(200).json({ status:1,msg: "Login Sucessfully",data:userexistdata});
         
     }else{
         res.status(404).json({ status:0,msg: "User Does't Exists",});
