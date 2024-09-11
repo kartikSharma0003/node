@@ -100,7 +100,7 @@ userSchema.pre("save", async function(next) {
 
         },
         'your_jwt_secret_key',
-        { expiresIn: "5h" }
+        // { expiresIn: "5h" }
     );
     user.token = token;
 
